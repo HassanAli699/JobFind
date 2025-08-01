@@ -101,7 +101,7 @@ function JobDetailsContent({ job }: { job: Job }) {
   const relativeTime = formatRelativeTime(job.postedAt);
 
   return (
-    <div className="space-y-6 animate-fade-in">
+    <div className="space-y-6 animate-fade-in bg-white dark:bg-gray-800">
       {/* Header */}
       <div className="space-y-4">
         <div className="flex items-start gap-4">
@@ -193,7 +193,7 @@ function JobDetailsContent({ job }: { job: Job }) {
         <JobDetailAd />
         
         {/* Apply Button - Below ad */}
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 mt-8 border border-blue-200">
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl p-6 mt-8 border border-blue-200 dark:border-blue-700">
           <Button 
             onClick={() => window.open(job.sourceUrl, '_blank')}
             className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-4 px-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 text-lg"
@@ -217,12 +217,30 @@ export function JobDetailsPanel({ job, isOpen, onClose }: JobDetailsPanelProps) 
   if (isMobile) {
     return (
       <Sheet open={isOpen} onOpenChange={onClose}>
-        <SheetContent side="bottom" className="h-[90vh] sm:h-[85vh] p-0">
-          <SheetHeader className="p-4 sm:p-6 pb-3 sm:pb-4">
-            <SheetTitle className="text-left text-lg sm:text-xl">Job Details</SheetTitle>
-          </SheetHeader>
-          <ScrollArea className="h-full px-4 sm:px-6 pb-4 sm:pb-6">
-            {job && <JobDetailsContent job={job} />}
+        <SheetContent 
+          side="bottom" 
+          className="h-[95vh] max-h-[95vh] p-0 rounded-t-2xl border-t-2 border-gray-200 shadow-2xl bg-white dark:bg-gray-800"
+          style={{ touchAction: 'pan-y' }}
+        >
+          <div className="sticky top-0 z-10 bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+            <SheetHeader className="p-4 pb-3">
+              <div className="flex items-center justify-between">
+                <SheetTitle className="text-left text-lg font-semibold">Job Details</SheetTitle>
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  onClick={onClose}
+                  className="h-8 w-8 p-0 rounded-full hover:bg-gray-100"
+                >
+                  <X className="h-4 w-4" />
+                </Button>
+              </div>
+            </SheetHeader>
+          </div>
+          <ScrollArea className="h-[calc(95vh-80px)] overflow-y-auto bg-white dark:bg-gray-800">
+            <div className="px-4 pb-8 bg-white dark:bg-gray-800">
+              {job && <JobDetailsContent job={job} />}
+            </div>
           </ScrollArea>
         </SheetContent>
       </Sheet>
@@ -231,15 +249,26 @@ export function JobDetailsPanel({ job, isOpen, onClose }: JobDetailsPanelProps) 
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl max-h-[90vh] w-[95vw] p-0">
-        <DialogHeader className="p-4 sm:p-6 pb-3 sm:pb-4">
-          <DialogTitle className="text-left text-lg sm:text-xl">Job Details</DialogTitle>
-          <DialogDescription className="text-left text-sm sm:text-base">
-            Complete job information and application details
-          </DialogDescription>
-        </DialogHeader>
-        <ScrollArea className="max-h-[75vh] px-6 pb-6">
-          {job && <JobDetailsContent job={job} />}
+      <DialogContent className="max-w-4xl h-[90vh] max-h-[90vh] p-0 overflow-hidden bg-white dark:bg-gray-800">
+        <div className="sticky top-0 z-10 bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+          <DialogHeader className="p-6 pb-4">
+            <div className="flex items-center justify-between">
+              <DialogTitle className="text-xl font-semibold">Job Details</DialogTitle>
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                onClick={onClose}
+                className="h-8 w-8 p-0 rounded-full hover:bg-gray-100"
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
+          </DialogHeader>
+        </div>
+        <ScrollArea className="h-[calc(90vh-100px)] overflow-y-auto bg-white dark:bg-gray-800">
+          <div className="px-6 pb-8 bg-white dark:bg-gray-800">
+            {job && <JobDetailsContent job={job} />}
+          </div>
         </ScrollArea>
       </DialogContent>
     </Dialog>

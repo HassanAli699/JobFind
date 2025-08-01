@@ -115,7 +115,15 @@ export default function JobCard({ job, onClick, viewMode = "list" }: JobCardProp
   };
 
   return (
-    <Card className="bg-white border border-slate-200 shadow-sm job-card relative cursor-pointer animate-fade-in" onClick={onClick}>
+    <Card 
+      className="bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 shadow-sm job-card relative cursor-pointer animate-fade-in hover:shadow-md transition-all duration-200 active:scale-[0.98]" 
+      onClick={onClick}
+      style={{ 
+        touchAction: 'manipulation',
+        WebkitTapHighlightColor: 'transparent',
+        backgroundColor: 'white'
+      }}
+    >
       {job.featured && (
         <div className="absolute top-4 right-4">
           <Badge variant="secondary" className="bg-yellow-100 text-yellow-800">
@@ -124,7 +132,7 @@ export default function JobCard({ job, onClick, viewMode = "list" }: JobCardProp
         </div>
       )}
       
-      <CardContent className="p-4 sm:p-6">
+      <CardContent className="p-4 sm:p-6 bg-white dark:bg-gray-800">
         <div className="flex flex-col sm:flex-row sm:items-start space-y-3 sm:space-y-0 sm:space-x-3 md:space-x-4">
           {/* Company Logo - Only show if exists */}
           {job.companyLogo && (
