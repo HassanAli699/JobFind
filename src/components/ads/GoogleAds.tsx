@@ -40,7 +40,7 @@ export function GoogleAd({
           textAlign: 'center',
           ...style
         }}
-        data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX" // Replace with your AdSense client ID
+        data-ad-client="ca-pub-4134368651312240" // Replace with your AdSense client ID
         data-ad-slot={slot}
         data-ad-format={format}
         data-full-width-responsive={responsive.toString()}
@@ -55,7 +55,7 @@ export function SidebarAd() {
     <div className="bg-white rounded-lg border border-slate-200 p-4 mb-6">
       <p className="text-xs text-slate-500 mb-2 text-center">Advertisement</p>
       <GoogleAd
-        slot="XXXXXXXXXX" // Replace with your ad slot
+        slot="5671791122" // Replace with your ad slot
         format="rectangle"
         style={{ minHeight: '250px', width: '300px' }}
         className="mx-auto"
@@ -70,7 +70,7 @@ export function InContentAd() {
     <div className="bg-slate-50 rounded-lg border border-slate-200 p-4 my-6">
       <p className="text-xs text-slate-500 mb-2 text-center">Sponsored</p>
       <GoogleAd
-        slot="YYYYYYYYYY" // Replace with your ad slot
+        slot="4454579238" // Replace with your ad slot
         format="horizontal"
         style={{ minHeight: '90px' }}
       />
@@ -85,7 +85,7 @@ export function FooterAd() {
       <div className="max-w-7xl mx-auto px-4">
         <p className="text-xs text-slate-500 mb-2 text-center">Advertisement</p>
         <GoogleAd
-          slot="ZZZZZZZZZZ" // Replace with your ad slot
+          slot="8824568077" // Replace with your ad slot
           format="horizontal"
           style={{ minHeight: '90px' }}
         />
@@ -100,7 +100,7 @@ export function MobileBannerAd() {
     <div className="md:hidden bg-white border-b border-slate-200 p-2">
       <p className="text-xs text-slate-500 mb-1 text-center">Ad</p>
       <GoogleAd
-        slot="WWWWWWWWWW" // Replace with your ad slot
+        slot="4805933020" // Replace with your ad slot
         format="horizontal"
         style={{ minHeight: '50px' }}
       />
@@ -114,7 +114,7 @@ export function JobDetailAd() {
     <div className="bg-slate-50 rounded-lg border border-slate-200 p-4 my-6">
       <p className="text-xs text-slate-500 mb-2 text-center">Sponsored</p>
       <GoogleAd
-        slot="VVVVVVVVVV" // Replace with your ad slot
+        slot="1864693469" // Replace with your ad slot
         format="rectangle"
         style={{ minHeight: '250px', maxWidth: '300px', margin: '0 auto' }}
         className="mx-auto"
