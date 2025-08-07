@@ -1,0 +1,19 @@
+# ads.txt file for JobFind - Google AdSense monetization
+# This file authorizes Google AdSense to serve ads on this domain
+
+google.com, ca-pub-4134368651312240, DIRECT, f08c47fec0942fa0
+
+# Additional ad networks can be added here
+# Example format: adnetwork.com, publisher-id, DIRECT/RESELLER, certification-authority-id
+
+# For future expansion with other ad networks:
+# amazon-adsystem.com, 3419, RESELLER
+# pubmatic.com, 156439, RESELLER, 5d62403b186f2ace
+# rubiconproject.com, 17960, RESELLER, 0bfd66d529a55807
+
+# Instructions for setup:
+# 1. Replace ca-pub-XXXXXXXXXXXXXXXXX with your actual Google AdSense publisher ID
+# 2. Verify the publisher ID matches exactly with your AdSense account
+# 3. Upload this file to the root of your domain (already in /public folder)
+# 4. Verify the file is accessible at: https://jobfind.replit.app/ads.txt
+# 5. Wait 24-48 hours for Google to crawl and verify the file
