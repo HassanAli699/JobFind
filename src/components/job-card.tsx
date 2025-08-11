@@ -103,20 +103,16 @@ export default function JobCard({
     return sourceMap[cleanedSource] || cleanedSource;
   };
 
-  // Clean HTML tags from text
-  const cleanHtmlTags = (text: any) => {
-    if (!text || typeof text !== "string") return String(text || "");
-    return text
-      .replace(/<[^>]*>/g, " ") // Remove HTML tags
-      .replace(/&amp;/g, "&")
-      .replace(/&lt;/g, "<")
-      .replace(/&gt;/g, ">")
-      .replace(/&quot;/g, '"')
-      .replace(/&#39;/g, "'")
-      .replace(/&nbsp;/g, " ")
-      .replace(/\s+/g, " ")
-      .trim();
-  };
+const cleanHtmlTags = (text: any) => {
+  if (!text || typeof text !== "string") return String(text || "");
+
+  const textarea = document.createElement("textarea");
+  textarea.innerHTML = text;
+
+  const decoded = textarea.value;
+
+  return decoded.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+};
 
   return (
     <Card
