@@ -1,0 +1,6 @@
+# ads.txt file for JobFind - Google AdSense monetization
+# This file authorizes Google AdSense to serve ads on this domain
+
+google.com, ca-pub-4134368651312240, DIRECT, f08c47fec0942fa0
+
+
